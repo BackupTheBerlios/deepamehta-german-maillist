@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Deepamehta-german] datenbank
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/deepamehta-german/2014-February/index.html" >
+   <LINK REL="made" HREF="mailto:deepamehta-german%40lists.berlios.de?Subject=Re%3A%20%5BDeepamehta-german%5D%20datenbank&In-Reply-To=%3CCCA32FAA-51CB-4412-92B0-2508E9D052C5%40deepamehta.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000013.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Deepamehta-german] datenbank</H1>
+    <B>J&#246;rg Richter</B> 
+    <A HREF="mailto:deepamehta-german%40lists.berlios.de?Subject=Re%3A%20%5BDeepamehta-german%5D%20datenbank&In-Reply-To=%3CCCA32FAA-51CB-4412-92B0-2508E9D052C5%40deepamehta.de%3E"
+       TITLE="[Deepamehta-german] datenbank">jri at deepamehta.de
+       </A><BR>
+    <I>Sat Feb  1 16:05:29 CET 2014</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000013.html">[Deepamehta-german] Datenbank
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+On Jan 31, 2014, at 9:00, <A HREF="https://lists.berlios.de/mailman/listinfo/deepamehta-german">nico4you at gmx.net</A> wrote:
+
+&gt;<i> welche erfahrung habt ihr mit der dm4 datenbank (performance)?
+</I>
+Bisher sehen wir keine Probleme mit der DM Datenbank. Bei allen DB-Zugriffen kommen Indizes zum Zug. Auch bei gro&#223;en Datenmengen sollte es keine wesentlichen Verz&#246;gerungen geben. Wir betreiben eine DM Client-Server Instanz mit 100.000 Topics, ohne Probleme.
+
+&gt;<i> benutze dm4 hobbym&#228;&#223;ig, um meine gedanken zu visualisieren. zu dem zweck habe ich 32000 lutherverse geladen. bei manchen aktionenen [...] dauerts dann schon sehr lange, bis sich was tut (z.b. login).
+</I>
+Sind bei Dir alle 32000 Topics in einer Topicmap sichtbar?
+
+Nur falls das bei Dir der Fall ist: dann w&#228;re nicht unbedingt die DB der Flaschenhals, sondern eher der Browser und (bei einer Client-Server Installation) auch die Netzwerkbandbreite.
+Hinweis: beim Einloggen wird die aktuelle Topicmap erneut geladen, weil sich die Zugriffsrechte &#228;ndern.
+
+Aber wie JuergeN schon sagte: ohne weitere Informationen ist es schwer dazu was verl&#228;&#223;liches zu sagen. Auch w&#252;rde mich interessieren wie Du die 32000 Luther-Verse importiert hast.
+
+&gt;<i> [...] ist die karaf-edition leistungsf&#228;higer?
+</I>
+Nein. Die Karaf-Distribution ist das gleiche DM. Es sind sozusagen nur mehr Tools vorinstalliert (insbesondere f&#252;r Client-Server Betrieb).
+
+&gt;<i> [...] sp&#228;ter m&#246;chte ich einen weg finden, mit squirrel-sql (via welchem connector?) auf die interne (jetty?) datenbank zuzugreifen.
+</I>
+DM verwendet eine Java-eingebettete Neo4j (NoSQL) Datenbank. SQL kommt hier nicht vor. Externe Anwendungen haben keinen direkten Zugriff auf die DB. Stattdessen greifen sie &#252;ber die REST Schnittstelle des DeepaMehta Core Service auf die DB zu. Dazu ist lediglich ein HTTP Client notwendig (und funktioniert in jeder Programmiertsprache).
+<A HREF="https://trac.deepamehta.de/wiki/RestApi">https://trac.deepamehta.de/wiki/RestApi</A>
+
+&gt;<i> wozu nutzt ihr die workspaces?
+</I>&gt;<i> (warum sind alle topicmaps (im oberen auswahlbalken) in jedem workspace sichtbar?
+</I>
+U.a. genau daran arbeiten wir gerade :-) In der Tat wird das Topicmaps Menu zuk&#252;nftig nur die Topicmaps auflisten, die zum ausgew&#228;hlten Workspace geh&#246;ren (und auf die der User Leserechte hat). Diese Funktion wird wahrscheinlich in DM 4.3 enthalten sein, die in 2-3 Monaten erscheinen soll. Bei dieser Release stehen die Kollaborationsfunktionen im Mittelpunkt.
+
+&gt;<i> @jri: kann man die timestamps sichtbar machen?
+</I>&gt;<i> in dm2 habe ich z.b. sofort gesehen, wann eine notiz erstellt wurde.
+</I>
+In der Tat unterst&#252;tzt das der DM4 Webclient derzeit nicht. Die Timestamp-Datstellung in DM3 hat uns nicht gefallen, da sie zu aufdringlich war und den eigentlichen Inhalt gest&#246;rt hat. (Es geht ja um 4 Informationen: creation/modification timestamp, creator/modifier user.) In jedem Fall k&#246;nntest Du dazu ein Ticket schreiben, in unserem (englischsprachigen) Trac. Du m&#252;&#223;test dich dort anmelden.
+<A HREF="https://trac.deepamehta.de">https://trac.deepamehta.de</A>
+
+Willkommen, Nico, auf der Liste :-)
+
+Gr&#252;&#223;e
+J&#246;rg
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000013.html">[Deepamehta-german] Datenbank
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/deepamehta-german">More information about the Deepamehta-german
+mailing list</a><br>
+</body></html>
